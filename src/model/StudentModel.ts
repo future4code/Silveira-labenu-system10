@@ -4,8 +4,9 @@ export class StudentModel{
     constructor(
         private id: string,
         private nome: string,
-        private turma: string,
-        private status: "Aprovado" | "Reprovado" = "Aprovado"
+        private email: string,
+        private data_nasc: string,
+        private turma_id: string
     ){}
     public getId(){
         return this.id
@@ -13,10 +14,13 @@ export class StudentModel{
     public getNome(){
         return this.nome
     }
-    public getTurma(){
-        return this.turma
+    public getEmail(){
+        return this.email
     }
-    public getStatus(){
-        return this.status
+    public getDataNasc(){
+        return this.data_nasc
+    }
+    public getTurmaId(){
+        return this.turma_id
     }
 }
