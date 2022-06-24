@@ -6,10 +6,10 @@ import { StudentModel } from "../model/StudentModel"
 export default async function createStudent (req: Request, res: Response): Promise<void> {
 
     try {
-        const {nome, turma, status} = req.body
+        const {nome, email, data_nasc, turma_id} = req.body
         const id = Date.now().toString()
 
-        const student = new StudentModel(id, nome, turma, status)
+        const student = new StudentModel(id, nome, email, data_nasc, turma_id)
 
         const studentDB = new StudentDatabase()
 

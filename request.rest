@@ -6,7 +6,8 @@ POST http://localhost:3003/students
 Content-Type: application/json
 
 {
-    "nome": "",
-    "turma": "",
-    "status": ""
+    "nome": "ze ramalho",
+    "email": "soNoBrega@gmail.com",
+    "data_nasc": "1989/06/06",
+    "turma_id": "1"
 }
