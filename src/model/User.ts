@@ -1,12 +1,12 @@
 
 
-export class StudentModel{
+export class Usuario{
     constructor(
-        private id: string,
-        private nome: string,
-        private email: string,
-        private data_nasc: string,
-        private turma_id: string
+        protected id: string,
+        protected nome: string,
+        protected email: string,
+        protected data_nasc: string,
+        protected turma_id: string
     ){}
     public getId(){
         return this.id
