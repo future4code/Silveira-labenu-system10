@@ -1,22 +1,29 @@
-import { Usuario } from "./UserModel";
-
-type Especialidade = {
-    nome:"JS" | "CSS" | "React" | "Typescript" | "POO"
-}
-export class Docente extends Usuario {
+export class Docente{
     constructor(
-        id: number,
-        nome: string,
-        email: string,
-        data_nasc: string,
-        turma_id: number,
-        private especialidade: Especialidade[],
-    ){
-        super(id, nome, email, data_nasc, turma_id )
-        this.especialidade = especialidade
+        private id: string,
+        private nome: string,
+        private email: string,
+        private data_nasc: string,
+        private turma_id: string,
+    ){}
+
+    public getId(){
+        return this.id
     }
 
-    public getEspecialidade(): Especialidade[]{
-        return this.especialidade
+    public getNome(){
+        return this.nome
+    }
+
+    public getEmail() {
+        return this.email
+    }
+
+    public getDataNasc(){
+        return this.data_nasc
+    }
+
+    public getTurmaId(){
+        return this.turma_id
     }
 }

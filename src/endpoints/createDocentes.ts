@@ -1,30 +1,35 @@
 import {Request, Response} from "express"
-import { DocenteDataBase } from "../data/DocenteDataBase"
+import { DataTeacher } from "../data/DataTeacher"
 import { Docente } from "../model/DocenteModel"
 
-export const createDocente = async (req: Request, res: Response): Promise<void> =>{
+export const createDocente = async (req: Request, res: Response) => {
     try{
-        const {nome, email, data_nasc, turma_id, especialidade} = req.body        
-        const id = Number(Math.floor(Date.now() * Math.random()))
-        console.log(id)
-        console.log(createDocente)
+        
+        const {nome, email, data_nasc, turma_id}= req.body
+        
+        const newDate = data_nasc.substr(0, 10).split('/').reverse().join('-')
+        
+        const id:string = Math.floor(Date.now() * Math.random()).toString(36)
 
-        const conversorData = (date: string): string => {
-            const arrData = date.split("/")
-            return `${arrData[2]}-${arrData[1]}-${arrData[0]}`
+        if (nome !== String(nome) || email !== String(email) || data_nasc !== String(data_nasc) || id !== String(id) || turma_id !== String(turma_id)) {
+            res.status(406)
+            throw new Error("Valores invalidos!")
         }
-        const dataSQL = conversorData(data_nasc)
+    
+        if (!nome || !email || !data_nasc || !id || !turma_id) {
+            res.status(400)
+            throw new Error("Campo vazio")
+        }
 
-        const docente:Docente = new Docente(id, nome, email, dataSQL, turma_id, especialidade)
+        const teacher = new Docente(id, nome, email, newDate, turma_id)
 
-        const docenteDB = new DocenteDataBase()
+        const teacherDB = new DataTeacher()
 
-        await docenteDB.criarDocente(docente)
+        await teacherDB.insertTeacher(teacher)
 
-        res.status(201).send("Docente cadastrado(a) com sucesso!!!")
+        res.status(201).end("Docente foi criado com Sucesso!")
 
     }catch(error:any){
-        throw new Error(error.sqlMessage || error.message)
-        
+        res.send(error.message)
     }
 }

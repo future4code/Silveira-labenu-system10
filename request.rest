@@ -22,10 +22,10 @@ POST http://localhost:3003/docente
 Content-Type: application/json
 
 {
-    "id": "4",
+    "id": "6",
     "nome": "teacherTest",
     "email": "pataaatdvadi@teacherTest.com",
-    "data_nasc": "29/06/1992",
+    "data_nasc": "1992/06/12",
     "turma_id": "1",
     "especialidade": "JS"
 }
