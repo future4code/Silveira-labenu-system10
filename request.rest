@@ -6,8 +6,8 @@ POST http://localhost:3003/students
 Content-Type: application/json
 
 {
-    "nome": "pataaatvavavddi",
-    "email": "pataaatdvadi@light.com",
+    "nome": "zxzxzx",
+    "email": "zxzxzxzx@light.com",
     "data_nasc": "1996/02/06",
     "turma_id": "1",
     "hobby": ["magia"]
@@ -15,3 +15,17 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3003/students/students?nome=tio
+
+###
+
+POST http://localhost:3003/docente
+Content-Type: application/json
+
+{
+    "id": "6",
+    "nome": "teacherTest",
+    "email": "pataaatdvadi@teacherTest.com",
+    "data_nasc": "1992/06/12",
+    "turma_id": "1",
+    "especialidade": "JS"
+}
