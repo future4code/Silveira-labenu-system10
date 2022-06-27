@@ -1,5 +1,3 @@
-
-
 export class Usuario{
     constructor(
         protected id: string,
